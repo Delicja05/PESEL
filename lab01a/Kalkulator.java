@@ -1,9 +1,9 @@
 package lab01a;
+
 /**
  * Klasa, ktora na podstawie podanego numeru PESEL sprawdza jego poprawnosc, przelicza na date urodzenia oraz okresla plec
  * @author Alicja Dewicka
  * @version 1.0
- *
  */
 public class Kalkulator{
 	
@@ -37,13 +37,13 @@ public class Kalkulator{
     static boolean sprawdzNumerPESEL(String pesel) throws PESELException{
     	
     	int dlugosc = pesel.length();
-    	if(dlugosc !=11)
+    	if(dlugosc != 11)
     		throw new PESELException("Dlugosc numeru PESEL niepoprawna");
     	PESEL = new int[11];
     	   	
     	try{
-             for(int i=0;i<11;i++){
-            	 String c=pesel.substring(i,i+1);
+             for(int i=0; i<11; i++){
+            	 String c = pesel.substring(i,i+1);
             	 PESEL[i] = Integer.parseInt(c);         
              }
              
@@ -59,13 +59,13 @@ public class Kalkulator{
             		 3 * PESEL[9] + 
             		 1 * PESEL[10];
              
-             if(suma%10!=0) {
+             if(suma%10 != 0){
             	 return false;
              }
-             else {
-            	 dzien = PESEL[4]*10+PESEL[5];
-            	 miesiac = PESEL[2]*10+PESEL[3];
-            	 rok = PESEL[0]*10+PESEL[1];
+             else{
+            	 dzien = PESEL[4]*10 + PESEL[5];
+            	 miesiac = PESEL[2]*10 + PESEL[3];
+            	 rok = PESEL[0]*10 + PESEL[1];
             	 plec = PESEL[9];
              }
          }
@@ -85,27 +85,27 @@ public class Kalkulator{
      */    
     static String dataUrodzenia() throws PESELException{
     	     	
-         if (miesiac > 0 && miesiac < 13) {
+         if (miesiac > 0 && miesiac < 13){
          	rok += 1900;
          }
-         else if (miesiac > 20 && miesiac < 33) {
+         else if (miesiac > 20 && miesiac < 33){
          	miesiac -= 20;
          	rok += 2000;
          }
-         else if (miesiac > 40 && miesiac < 53) {
+         else if (miesiac > 40 && miesiac < 53){
          	miesiac -= 40;
          	rok += 2100;
          }
-         else if (miesiac > 60 && miesiac < 73) {
+         else if (miesiac > 60 && miesiac < 73){
          	miesiac -= 60;
          	rok += 2200;
          }
-         else if (miesiac > 80 && miesiac < 93) {
+         else if (miesiac > 80 && miesiac < 93){
         	 miesiac -= 80;
          	rok += 1800;
          } 
          
-         if (miesiac > 0 && miesiac < 13) {
+         if (miesiac > 0 && miesiac < 13){
         	 if ((dzien >0 && dzien < 32) && (miesiac == 1 || miesiac == 3 || miesiac == 5 || miesiac == 7 || miesiac == 8 || miesiac == 10 || miesiac == 12)) {
         		 return ((dzien < 10) ? "0" : "") + dzien + "-" + ((miesiac < 10) ? "0" : "") + miesiac + "-" + rok;
         	 }
@@ -115,13 +115,11 @@ public class Kalkulator{
              else if ((dzien >0 && dzien < 30 && miesiac == 2 && rok % 4 == 0) || (dzien >0 && dzien < 29 && miesiac == 2 && rok % 4 != 0)) {
             	 return ((dzien < 10) ? "0" : "") + dzien + "-" + ((miesiac < 10) ? "0" : "") + miesiac + "-" + rok;
              }
-             else {
+             else
             	 throw new PESELException("Numer PESEL niepoprawny");
-             }
          }
          else
-        	 throw new PESELException("Niepoprawny miesiac");
-         
+        	 throw new PESELException("Niepoprawny miesiac");         
     }
     
     /**
@@ -130,7 +128,7 @@ public class Kalkulator{
      */    
     static String Plec(){
     	    	
-    	if(plec%2==0)
+    	if(plec%2 == 0)
     		return "Kobieta";
     	else
     		return "Mezczyzna";

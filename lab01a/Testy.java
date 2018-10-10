@@ -5,15 +5,15 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.Before;
 import org.junit.Test;
 
-public class Testy {
+public class Testy{
 	
 	@Before
-    public void setUp() {
+    public void setUp(){
     	Kalkulator kalkulator = new Kalkulator();
 }
 	
 	@Test(expected = PESELException.class)
-	    public void sprawdzNumerPESEL() throws PESELException {
+	    public void sprawdzNumerPESEL() throws PESELException{
 	        
 			Kalkulator.sprawdzNumerPESEL("9708as07727");
 	        assertEquals(true, Kalkulator.sprawdzNumerPESEL("01240306080"));
@@ -21,7 +21,7 @@ public class Testy {
 	} 
 	 
 	@Test
-    public void dataUrodzenia() {
+    public void dataUrodzenia(){
 		
         Kalkulator.dzien = 24;
         Kalkulator.miesiac = 12;
@@ -31,13 +31,12 @@ public class Testy {
 	}
 	
 	@Test
-    public void Plec() {
+    public void Plec(){
 		
         Kalkulator.plec = 4;
         assertEquals("Kobieta", Kalkulator.Plec());
 
         Kalkulator.plec = 5;
         assertEquals("Mezczyzna", Kalkulator.Plec());
-	}
-	
+	}	
 }

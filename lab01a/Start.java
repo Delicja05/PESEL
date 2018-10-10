@@ -4,7 +4,6 @@ package lab01a;
  * Klasa zawierajaca glowna funkcje main, uruchomienie aplikacji
  * @author Alicja Dewicka
  * @version 1.0
- *
  */
 public class Start {
     /**
