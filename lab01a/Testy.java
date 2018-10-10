@@ -1,9 +1,16 @@
 package lab01a;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.Before;
 import org.junit.Test;
 
 public class Testy {
+	
+	@Before
+    public void setUp() {
+    	Kalkulator kalkulator = new Kalkulator();
+}
 	
 	@Test(expected = PESELException.class)
 	    public void sprawdzNumerPESEL() throws PESELException {
@@ -18,7 +25,7 @@ public class Testy {
 		
         Kalkulator.dzien = 24;
         Kalkulator.miesiac = 12;
-        Kalkulator.rok = 1997;
+        Kalkulator.rok = 97;
         
         assertEquals("24-12-1997", Kalkulator.dataUrodzenia());
 	}
@@ -31,8 +38,6 @@ public class Testy {
 
         Kalkulator.plec = 5;
         assertEquals("Mezczyzna", Kalkulator.Plec());
-}
+	}
 	
-	
-
 }
